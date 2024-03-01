@@ -73,7 +73,6 @@
    
       @foreach ($users as $user) 
       
-       
          <tr>
             <td>{{$loop->iteration}}</td>
             <td>
