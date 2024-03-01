@@ -3,7 +3,11 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
+<style>
+    table, th, td {
+  border: 1px solid black;
+}
+</style>
 </head>
 
     <div class="container">
@@ -37,22 +41,83 @@
                 </div>
                 
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault1" required>
+                    <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault1" value="Male" required>
                     <label class="form-check-label" for="flexRadioDefault1">
                         Male
                     </label>
-                    <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault2">
+                    <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault2" value="Female">
                     <label class="form-check-label" for="flexRadioDefault2">
                         Female
                     </label>
                 </div>
                     
                 <input type="submit" class="btn btn-primary">
-            </form>
+       </form>
         </div>
         <div class="col">
-        2 of 2
+        <input id="myInput" type="text" placeholder="Search..">
+        <br>
+        <table style="border: 1px solid black" id="myTable">
+<!-- The first row is the table's header -->
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Address</th>
+                    <th>Gender</th>
+                    <th>Action</th>
+                </tr>
+                
+
+   @if(count($users) != 0)
+   
+      @foreach ($users as $user) 
+      
+       
+         <tr>
+            <td>{{$loop->iteration}}</td>
+            <td>
+               {{ $user['name']}} 
+            </td>
+            <td>
+               <img 
+                  src="images/{{$user['image']}}"
+                  alt=""
+                  width="100px" height="50px">
+            </td>
+            
+            <td>
+               {{ $user['address']}} 
+            </td>
+            <td>
+               {{$user['gender'] }}  
+            </td>
+            
+            <td>
+               <a href="">Edit</a>
+               <a href="">Delete</a>
+               <a href="">View</a>
+            </td>
+         </tr>
+      @endforeach
+    @endif
+</table>	
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    //console.log("hii1");
+
+  $("#myInput").on("keyup", function() {
+    //console.log("hii");
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 

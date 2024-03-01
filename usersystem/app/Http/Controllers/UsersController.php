@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 class UsersController extends Controller
 {
     function index() {
-        return view('users');
+      $json_data = file_get_contents("json/userData.json");
+          
+      $users = json_decode($json_data, true);
+      //dd($users);
+        return view('users',compact('users'));
       }
 
       public function store_data(Request $request){
@@ -35,9 +39,17 @@ class UsersController extends Controller
           $arr[]=$user;
           $json=json_encode($arr);
           file_put_contents('json/userData.json',$json);
+
+          
           return redirect()->route('index');
 
         }
   }
+  
+  public function updatedata(Request $request){
+
+  }
+
+  
 
 }
