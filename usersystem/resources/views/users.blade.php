@@ -108,10 +108,8 @@
 
 <script>
 $(document).ready(function(){
-    //console.log("hii1");
-
   $("#myInput").on("keyup", function() {
-    //console.log("hii");
+    //console.log("test");
     var value = $(this).val().toLowerCase();
     $("#myTable tr").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
