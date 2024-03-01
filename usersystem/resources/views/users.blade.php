@@ -84,16 +84,14 @@
                   alt=""
                   width="100px" height="50px">
             </td>
-            
             <td>
                {{ $user['address']}} 
             </td>
             <td>
                {{$user['gender'] }}  
             </td>
-            
             <td>
-               <a href="">Edit</a>
+               <a href="{{$user[id]}}">Edit</a>
                <a href="">Delete</a>
                <a href="">View</a>
             </td>
