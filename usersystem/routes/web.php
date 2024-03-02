@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 // });  
 Route::get('/', [UsersController::class, 'index'])->name('index');
 Route::post('/store', [UsersController::class, 'store_data'])->name('store');
+//Route::get('/user_edit/{id}', [UsersController::class, 'updateUserdata']);
+Route::post('/user_delete/{id}', [UsersController::class, 'delUserdata'])->name('user_delete');
 
 
 

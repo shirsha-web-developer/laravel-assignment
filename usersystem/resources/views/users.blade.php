@@ -91,9 +91,12 @@
                {{$user['gender'] }}  
             </td>
             <td>
-               <a href="{{$user[id]}}">Edit</a>
-               <a href="">Delete</a>
-               <a href="">View</a>
+               
+               <a href="javascript:void(0)" id="delete">Delete</a>
+               <form action="{{route('user_delete',$user['id'])}}" method="POST" id="delFrm">
+                    @csrf
+               </form>
+               
             </td>
          </tr>
       @endforeach
@@ -113,6 +116,9 @@ $(document).ready(function(){
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
+  $('#delete').on('click',function(){
+    $('#delFrm').submit();
+  })
 });
 </script>
 

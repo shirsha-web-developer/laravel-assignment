@@ -1,16 +1,1 @@
-[
-    {
-        "id": "65e2176c15bd4",
-        "name": "Test",
-        "image": "1709315948-65e2176c15212.jpg",
-        "address": "Testing...",
-        "gender": "Male"
-    },
-    {
-        "id": "65e217b21598f",
-        "name": "Ratna Deep",
-        "image": "1709316018-65e217b214d73.jpg",
-        "address": "Test it again",
-        "gender": "Female"
-    }
-]
+[{"id":"65e327a0a6e58","name":"Shirsha","image":"1709385632-65e327a0a6460.jpg","address":"Dumdum","gender":"Female"}]
